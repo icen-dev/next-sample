@@ -9,7 +9,7 @@ import {
   Tabs,
   Tab,
 } from "@mui/material";
-import { PhotoCamera } from "@mui/icons-material";
+import { PhotoCamera, Gesture } from "@mui/icons-material"
 
 const pages = ["Products", "Pricing", "Blog"];
 
@@ -44,9 +44,9 @@ function NavTabs() {
         indicatorColor="secondary"
         textColor="secondary"
       >
-        <LinkTab label="会社概要" href="/drafts" />
-        <LinkTab label="事業内容" href="/trash" />
-        <LinkTab label="お問合せ" href="/spam" />
+        <LinkTab label="Help" href="/drafts" />
+        <LinkTab label="Showcase" href="/trash" />
+        <LinkTab label="Contact" href="/spam" />
       </Tabs>
     </Box>
   );
@@ -55,8 +55,9 @@ function NavTabs() {
 const Header = () => {
   return (
     <Box>
-      <AppBar position="static">
+      <AppBar position="fixed">
         <Toolbar variant="dense" sx={{ mx: 6 }}>
+          <Gesture color="secondary" sx={{ mr: 1 }} />
           <Typography
             variant="h6"
             display="inline-block"
