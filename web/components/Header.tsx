@@ -1,8 +1,17 @@
-import * as React from 'react'
-import { AppBar, Box, Toolbar, Typography, Button, IconButton, Tabs, Tab } from '@mui/material'
-import { PhotoCamera } from '@mui/icons-material'
+import * as React from "react";
+import {
+  AppBar,
+  Box,
+  Toolbar,
+  Typography,
+  Button,
+  IconButton,
+  Tabs,
+  Tab,
+} from "@mui/material";
+import { PhotoCamera } from "@mui/icons-material";
 
-const pages = ['Products', 'Pricing', 'Blog'];
+const pages = ["Products", "Pricing", "Blog"];
 
 interface LinkTabProps {
   label?: string;
@@ -27,11 +36,17 @@ function NavTabs() {
     setValue(newValue);
   };
   return (
-    <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-      <Tabs value={value} onChange={handleChange} aria-label="nav tabs example" indicatorColor="secondary" textColor='secondary'>
-        <LinkTab label="Page One" href="/drafts" />
-        <LinkTab label="Page Two" href="/trash" />
-        <LinkTab label="Page Three" href="/spam" />
+    <Box sx={{ display: { xs: "none", sm: "block" } }}>
+      <Tabs
+        value={value}
+        onChange={handleChange}
+        aria-label="nav tabs example"
+        indicatorColor="secondary"
+        textColor="secondary"
+      >
+        <LinkTab label="会社概要" href="/drafts" />
+        <LinkTab label="事業内容" href="/trash" />
+        <LinkTab label="お問合せ" href="/spam" />
       </Tabs>
     </Box>
   );
@@ -42,17 +57,25 @@ const Header = () => {
     <Box>
       <AppBar position="static">
         <Toolbar variant="dense" sx={{ mx: 6 }}>
-          <Typography variant="h6" display="inline-block" sx={{ flexGrow: 1 }}>
-            SAMPLE LOGO
+          <Typography
+            variant="h6"
+            display="inline-block"
+            color="secondary"
+            sx={{ flexGrow: 1, fontWeight: "bold", letterSpacing: 3 }}
+          >
+            SAMPLE
           </Typography>
           <NavTabs />
-          <IconButton sx={{ display: { xs: 'block', sm: 'none' } }} color="secondary">
+          <IconButton
+            sx={{ display: { xs: "block", sm: "none" } }}
+            color="secondary"
+          >
             <PhotoCamera />
           </IconButton>
         </Toolbar>
       </AppBar>
     </Box>
   );
-}
+};
 
-export default Header
+export default Header;
