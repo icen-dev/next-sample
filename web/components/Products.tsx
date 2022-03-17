@@ -89,11 +89,13 @@ const Product = () => {
       <Headline title={title} subtitle={subtitle} />
       <Box>
         {itemList.map((v) => {
-          <Item
-            src={v.src}
-            title={v.title}
-            price={v.price}
-            parts={v.parts} />
+          return (
+            <Item
+              src={v.src}
+              title={v.title}
+              price={v.price}
+              parts={v.parts} />
+          )
         })}
       </Box>
     </Container>
