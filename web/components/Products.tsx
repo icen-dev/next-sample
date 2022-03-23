@@ -15,6 +15,8 @@ import {
   DialogActions,
   Button,
   ButtonBase,
+  Grid,
+  Divider,
 } from "@mui/material";
 import Image from "next/image";
 import Headline from "./Headline";
@@ -29,6 +31,7 @@ interface DialogProps {
 interface DataProps {
   src: string;
   title: string;
+  discription: string;
   price: number;
   parts: number;
 }
@@ -46,20 +49,48 @@ const ProductDialog = (props: DialogProps) => {
       onClose={props.handleClose}
       aria-labelledby="alert-dialog-title"
       aria-describedby="alert-dialog-description"
+      maxWidth={'md'}
     >
-      <DialogTitle id="alert-dialog-title">{props.data.title}</DialogTitle>
-      <DialogContent>
-        <DialogContentText id="alert-dialog-description">
-          Let Google help apps determine location. This means sending anonymous
-          location data to Google, even when no apps are running.
-        </DialogContentText>
-      </DialogContent>
-      <DialogActions>
-        <Button onClick={props.handleClose}>Disagree</Button>
-        <Button onClick={props.handleClose} autoFocus>
-          Agree
-        </Button>
-      </DialogActions>
+      <Grid container spacing={0}>
+        <Grid item xs={12} md={6}>
+          <DialogContent sx={{ p: 0 }}>
+            <Image
+              src={props.data.src}
+              alt="me"
+              layout="responsive"
+              width={500}
+              height={500}
+            />
+          </DialogContent>
+        </Grid>
+        <Divider orientation="vertical" flexItem sx={{ mx: -0.1 }} />
+        <Grid item xs={12} md={6}>
+          <DialogContent sx={{ py: 1 }}>
+            <DialogTitle sx={{ p: 0, fontWeight: "bold" }}>
+              {props.data.title}
+            </DialogTitle>
+          </DialogContent>
+          <Divider flexItem />
+          <DialogContent sx={{ py: 1 }}>
+            <DialogContentText id="alert-dialog-description">
+              {props.data.discription}
+            </DialogContentText>
+          </DialogContent>
+          <Divider flexItem />
+          <DialogContent sx={{ py: 1 }}>
+            <DialogContentText sx={{ textAlign: "right", fontWeight: "bold" }}>
+              ¥ {props.data.price} -
+            </DialogContentText>
+          </DialogContent>
+          <Divider flexItem />
+          <DialogActions sx={{ py: 2 }}>
+            <Button onClick={props.handleClose} variant="contained" size="large">
+              Simulation Start
+            </Button>
+          </DialogActions>
+        </Grid>
+      </Grid>
+
     </Dialog>
   );
 };
@@ -78,7 +109,7 @@ const Item = (props: ItemProps) => {
           height="180"
           image={props.data.src}
           alt="test"
-        ></CardMedia>
+        />
 
         <CardContent>
           <Typography component="div" sx={{ fontWeight: "bold" }}>
@@ -106,31 +137,59 @@ const Product = () => {
   const title = "Productions";
   const subtitle = " Choose a Customizable Shoe Style. (10+)";
   const itemList = [
-    { src: "/product-sample.jpg", title: "Hole Cut", price: 42000, parts: 2 },
+    {
+      src: "/product-sample.jpg",
+      title: "Hole Cut",
+      discription: "1Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.Let Google help apps determine location. ",
+      price: 42000,
+      parts: 2
+    },
     {
       src: "/product-sample.jpg",
       title: "Straight Tip",
+      discription: "1Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.Let Google help apps determine location. ",
       price: 58000,
       parts: 3,
     },
-    { src: "/product-sample.jpg", title: "Loafer", price: 23000, parts: 2 },
+    {
+      src: "/product-sample.jpg",
+      title: "Hole Cut",
+      discription: "1Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.Let Google help apps determine location. ",
+      price: 42000,
+      parts: 2
+    },
     {
       src: "/product-sample.jpg",
       title: "Double Mounk",
+      discription: "2Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.Let Google help apps determine location. ",
       price: 59000,
       parts: 5,
     },
-    { src: "/product-sample.jpg", title: "Hole Cut", price: 42000, parts: 3 },
+    {
+      src: "/product-sample.jpg",
+      title: "Hole Cut",
+      discription: "1Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.Let Google help apps determine location. ",
+      price: 42000,
+      parts: 2
+    },
     {
       src: "/product-sample.jpg",
       title: "Straight Tip",
+      discription: "3Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.Let Google help apps determine location. ",
       price: 58000,
       parts: 3,
     },
-    { src: "/product-sample.jpg", title: "Loafer", price: 23000, parts: 4 },
+    {
+      src: "/product-sample.jpg",
+      title: "Hole Cut",
+      discription: "1Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.Let Google help apps determine location. ",
+      price: 42000,
+      parts: 2
+    },
     {
       src: "/product-sample.jpg",
       title: "Double Mounk",
+      discription: "4Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.Let Google help apps determine location. ",
       price: 59000,
       parts: 2,
     },
