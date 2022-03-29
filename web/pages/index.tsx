@@ -1,17 +1,14 @@
 import type { NextPage } from 'next'
-import Layout from "../components/Layout"
-import Hero from "../components/Hero"
-import Products from "../components/Products"
-import ProductDialog from '../components/ProductDialog'
+import AppLayout from "../components/AppLayout"
+import TheHero from "../components/TheHero"
+import TheProducts from "../components/TheProducts"
 
 const Home: NextPage = () => {
   return (
-    <Layout>
-      <Hero />
-      <Products />
-      {/* <ProductDialog /> */}
-      {/* <Introduction /> */}
-    </Layout>
+    <AppLayout>
+      <TheHero />
+      <TheProducts />
+    </AppLayout>
   )
 }
 

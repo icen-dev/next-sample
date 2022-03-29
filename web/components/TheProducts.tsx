@@ -19,7 +19,7 @@ import {
   Divider,
 } from "@mui/material";
 import Image from "next/image";
-import Headline from "./Headline";
+import BaseHeadline from "./BaseHeadline";
 import { Widgets } from "@mui/icons-material";
 
 interface DialogProps {
@@ -51,8 +51,8 @@ const ProductDialog = (props: DialogProps) => {
       aria-describedby="alert-dialog-description"
       maxWidth={'md'}
     >
-      <Grid container spacing={0}>
-        <Grid item xs={12} md={6}>
+      <Grid container spacing={0} >
+        <Grid xs={12} sm={6} item>
           <DialogContent sx={{ p: 0 }}>
             <Image
               src={props.data.src}
@@ -64,7 +64,7 @@ const ProductDialog = (props: DialogProps) => {
           </DialogContent>
         </Grid>
         <Divider orientation="vertical" flexItem sx={{ mx: -0.1 }} />
-        <Grid item xs={12} md={6}>
+        <Grid xs={12} sm={6} item>
           <DialogContent sx={{ py: 1 }}>
             <DialogTitle sx={{ p: 0, fontWeight: "bold" }}>
               {props.data.title}
@@ -205,11 +205,11 @@ const Product = () => {
   };
 
   return (
-    <Container sx={{ p: 3 }}>
+    <Container maxWidth={'lg'} sx={{ p: 3 }}>
       <ProductDialog open={open} handleClose={handleClose} data={itemList[selected]} />
-      <Headline title={title} subtitle={subtitle} />
+      <BaseHeadline title={title} subtitle={subtitle} />
       <Box
-        sx={{ display: "grid", gap: 1, gridTemplateColumns: { xs: "repeat(2, 1fr)", md: "repeat(4, 1fr)" } }}
+        sx={{ display: "grid", gap: 1, gridTemplateColumns: { xs: "repeat(2, 1fr)", sm: "repeat(3, 1fr)", md: "repeat(4, 1fr)" } }}
       >
         {itemList.map((v, i) => {
           return <Item idx={i} data={v} handleOpen={handleOpen} />;
